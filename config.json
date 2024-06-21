@@ -1,6 +1,12 @@
 {
-    "title":"Blog Title",
-    "subTitle":"Blog description",
-    "avatarUrl":"https://github.githubassets.com/favicons/favicon.svg",
-    "GMEEK_VERSION":"last"
+    "title":"Kylin's",
+    "subTitle":"Essay",
+    "avatarUrl":"https://avatars.githubusercontent.com/u/45586871?v=4",
+    "GMEEK_VERSION":"last",
+    "i18n":"CN",
+    "UTC":8,
+    "themeMode":"manual",
+    "dayTheme":"light_tritanopia",
+    "onePageListNum":20,
+    "nightTheme":"dark_tritanopia"
 }
