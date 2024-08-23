@@ -1,5 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Kylin's</title><link>https://kylinholmes.github.io</link><description>Essay</description><copyright>Kylin's</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/45586871?v=4</url><title>avatar</title><link>https://kylinholmes.github.io</link></image><lastBuildDate>Mon, 12 Aug 2024 04:48:23 +0000</lastBuildDate><managingEditor>Kylin's</managingEditor><ttl>60</ttl><webMaster>Kylin's</webMaster><item><title>在 Rust中 动态链接和运行时加载动态库</title><link>https://kylinholmes.github.io/post/zai-%20Rust-zhong-%20-dong-tai-lian-jie-he-yun-xing-shi-jia-zai-dong-tai-ku.html</link><description>## 动态链接crate&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Kylin's</title><link>https://kylinholmes.github.io</link><description>Essay</description><copyright>Kylin's</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/45586871?v=4</url><title>avatar</title><link>https://kylinholmes.github.io</link></image><lastBuildDate>Fri, 23 Aug 2024 05:05:23 +0000</lastBuildDate><managingEditor>Kylin's</managingEditor><ttl>60</ttl><webMaster>Kylin's</webMaster><item><title>Application Binary Interface</title><link>https://kylinholmes.github.io/post/Application%20Binary%20Interface.html</link><description>&#13;
+**ABI 大致包含以下内容**&#13;
+~~Todo: ~~&#13;
+- [ ] 函数调用：&#13;
+- [ ] 数据类型布局：&#13;
+- [ ] 异常处理：&#13;
+- [ ] 内存管理：&#13;
+- [ ] 命名重整（Name Mangling）：&#13;
+- [ ] 类型转换：&#13;
+- [ ] 线程机制：&#13;
+- [ ] 动态链接：&#13;
+&#13;
+ &#13;
+## 函数调用&#13;
+  - 参数传递：规定了函数参数是如何传递的，包括参数的顺序、位置（寄存器或栈）等。</description><guid isPermaLink="true">https://kylinholmes.github.io/post/Application%20Binary%20Interface.html</guid><pubDate>Fri, 23 Aug 2024 03:46:26 +0000</pubDate></item><item><title>在 Rust中 动态链接和运行时加载动态库</title><link>https://kylinholmes.github.io/post/zai-%20Rust-zhong-%20-dong-tai-lian-jie-he-yun-xing-shi-jia-zai-dong-tai-ku.html</link><description>## 动态链接crate&#13;
 &#13;
 **假设动态库是 impls**&#13;
 **需要链接到 impls的crate是abi**&#13;
