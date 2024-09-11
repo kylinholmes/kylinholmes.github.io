@@ -10,13 +10,11 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="
-## CentOS本身不再维护
-因为不在维护，部分镜像源仓库（清华源） 逐渐停止服务。">
+<meta name="description" content="## CentOS本身不再维护
+因为不再维护，部分镜像源仓库（清华源） 开始停止服务。">
 <meta property="og:title" content="不要再使用CentOS系的发行版 作为运行和开发环境">
-<meta property="og:description" content="
-## CentOS本身不再维护
-因为不在维护，部分镜像源仓库（清华源） 逐渐停止服务。">
+<meta property="og:description" content="## CentOS本身不再维护
+因为不再维护，部分镜像源仓库（清华源） 开始停止服务。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kylinholmes.github.io/post/bu-yao-zai-shi-yong-CentOS-xi-de-fa-xing-ban-%20-zuo-wei-yun-xing-he-kai-fa-huan-jing.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/45586871?v=4">
@@ -78,7 +76,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
     <div id="content">
 <div class="markdown-body" id="postBody"><h2>CentOS本身不再维护</h2>
-<p>因为不在维护，部分镜像源仓库（清华源） 逐渐停止服务。</p>
+<p>因为不再维护，部分镜像源仓库（清华源） 开始停止服务。</p>
 <p>目前遇到的问题是，当尝试编译程序时，需要的依赖无法下载，并且后续处理只能通过换源的方案，如果没有稳定的源，应该逐渐放弃使用CentOS</p>
 <h2>基于CentOS编译出的C++库，可能存在兼容性的问题</h2>
 <p>具体来说，这个是GCC的stdc++实现原因，在GCC 5.1 中，std::string std::list有新实现，并且ABI与之前（常见于 GCC 4.8）的不兼容。</p>
