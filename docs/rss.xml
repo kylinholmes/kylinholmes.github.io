@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Kylin's</title><link>https://kylinholmes.github.io</link><description>Essay</description><copyright>Kylin's</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/45586871?v=4</url><title>avatar</title><link>https://kylinholmes.github.io</link></image><lastBuildDate>Thu, 07 Nov 2024 16:13:36 +0000</lastBuildDate><managingEditor>Kylin's</managingEditor><ttl>60</ttl><webMaster>Kylin's</webMaster><item><title>Native 和 Uniapp的 双向通信</title><link>https://kylinholmes.github.io/post/Native%20-he-%20Uniapp-de-%20-shuang-xiang-tong-xin.html</link><description>&#13;
-主要思路：&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Kylin's</title><link>https://kylinholmes.github.io</link><description>Essay</description><copyright>Kylin's</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/45586871?v=4</url><title>avatar</title><link>https://kylinholmes.github.io</link></image><lastBuildDate>Thu, 07 Nov 2024 16:20:38 +0000</lastBuildDate><managingEditor>Kylin's</managingEditor><ttl>60</ttl><webMaster>Kylin's</webMaster><item><title>Native 和 Uniapp的 双向通信</title><link>https://kylinholmes.github.io/post/Native%20-he-%20Uniapp-de-%20-shuang-xiang-tong-xin.html</link><description>主要思路：&#13;
 1. FFI： 通过ABI接口把数据传输到 Uniapp&#13;
 2. 直接通过发送消息的接口发送数据&#13;
 &#13;
 其中1在安卓的接口中是确实支持的，在IOS中暂时没看到相关接口&#13;
 Android: [DCUniMPJSCallback.invoke(data)](https://nativesupport.dcloud.net.cn/UniMPDocs/API/android-v2.html#dcunimpjscallback-invoke)&#13;
 &#13;
-考虑到统一，可以考虑用方案2，通过发送event&#13;
+**考虑到统一，可以考虑用方案2，通过发送event**&#13;
 &#13;
+## Native到 Uniapp&#13;
 &gt; 宿主主动触发事件到正在运行的小程序。</description><guid isPermaLink="true">https://kylinholmes.github.io/post/Native%20-he-%20Uniapp-de-%20-shuang-xiang-tong-xin.html</guid><pubDate>Thu, 07 Nov 2024 15:53:18 +0000</pubDate></item><item><title>不要再使用CentOS系的发行版 作为运行和开发环境</title><link>https://kylinholmes.github.io/post/bu-yao-zai-shi-yong-CentOS-xi-de-fa-xing-ban-%20-zuo-wei-yun-xing-he-kai-fa-huan-jing.html</link><description>## CentOS本身不再维护&#13;
 因为不再维护，部分镜像源仓库（清华源） 开始停止服务。</description><guid isPermaLink="true">https://kylinholmes.github.io/post/bu-yao-zai-shi-yong-CentOS-xi-de-fa-xing-ban-%20-zuo-wei-yun-xing-he-kai-fa-huan-jing.html</guid><pubDate>Wed, 11 Sep 2024 06:06:27 +0000</pubDate></item><item><title>Application Binary Interface</title><link>https://kylinholmes.github.io/post/Application%20Binary%20Interface.html</link><description>&#13;
 **ABI 大致包含以下内容**&#13;

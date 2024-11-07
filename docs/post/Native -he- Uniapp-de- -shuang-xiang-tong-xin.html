@@ -10,28 +10,28 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="
-主要思路：
+<meta name="description" content="主要思路：
 1. FFI： 通过ABI接口把数据传输到 Uniapp
 2. 直接通过发送消息的接口发送数据
 
 其中1在安卓的接口中是确实支持的，在IOS中暂时没看到相关接口
 Android: [DCUniMPJSCallback.invoke(data)](https://nativesupport.dcloud.net.cn/UniMPDocs/API/android-v2.html#dcunimpjscallback-invoke)
 
-考虑到统一，可以考虑用方案2，通过发送event
+**考虑到统一，可以考虑用方案2，通过发送event**
 
+## Native到 Uniapp
 > 宿主主动触发事件到正在运行的小程序。">
 <meta property="og:title" content="Native 和 Uniapp的 双向通信">
-<meta property="og:description" content="
-主要思路：
+<meta property="og:description" content="主要思路：
 1. FFI： 通过ABI接口把数据传输到 Uniapp
 2. 直接通过发送消息的接口发送数据
 
 其中1在安卓的接口中是确实支持的，在IOS中暂时没看到相关接口
 Android: [DCUniMPJSCallback.invoke(data)](https://nativesupport.dcloud.net.cn/UniMPDocs/API/android-v2.html#dcunimpjscallback-invoke)
 
-考虑到统一，可以考虑用方案2，通过发送event
+**考虑到统一，可以考虑用方案2，通过发送event**
 
+## Native到 Uniapp
 > 宿主主动触发事件到正在运行的小程序。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kylinholmes.github.io/post/Native%20-he-%20Uniapp-de-%20-shuang-xiang-tong-xin.html">
@@ -110,7 +110,8 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </ol>
 <p>其中1在安卓的接口中是确实支持的，在IOS中暂时没看到相关接口<br>
 Android: <a href="https://nativesupport.dcloud.net.cn/UniMPDocs/API/android-v2.html#dcunimpjscallback-invoke" rel="nofollow">DCUniMPJSCallback.invoke(data)</a></p>
-<p>考虑到统一，可以考虑用方案2，通过发送event</p>
+<p><strong>考虑到统一，可以考虑用方案2，通过发送event</strong></p>
+<h2>Native到 Uniapp</h2>
 <blockquote>
 <p>宿主主动触发事件到正在运行的小程序。注意：需要已有小程序在运行才可成功</p>
 </blockquote>
@@ -129,7 +130,29 @@ Android: <a href="https://nativesupport.dcloud.net.cn/UniMPDocs/API/android-v2.h
     <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s">"onNativeEventReceive----="</span><span class="pl-c1">+</span><span class="pl-s1">event</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
 <span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
 <p>最好的方案是在uniapp收到消息后，能把消息传递到新的线程中做处理，不阻塞监听消息的函数<br>
-但是不确定uniapp的jsruntime中是否支持多线程</p></div>
+但是不确定uniapp的jsruntime中是否支持多线程</p>
+<h2>Uniapp到 Native</h2>
+<p>Uniapp</p>
+<div class="highlight highlight-source-js"><pre class="notranslate"><span class="pl-c">//小程序js层发送事件给宿主</span>
+<span class="pl-s1">uni</span><span class="pl-kos">.</span><span class="pl-en">sendNativeEvent</span><span class="pl-kos">(</span><span class="pl-s">"aa"</span><span class="pl-kos">,</span><span class="pl-s1">a</span><span class="pl-kos">,</span> <span class="pl-k">function</span><span class="pl-kos">(</span><span class="pl-s1">e</span><span class="pl-kos">)</span><span class="pl-kos">{</span>
+	<span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s">"sendNativeEvent-----------回调"</span><span class="pl-c1">+</span><span class="pl-c1">JSON</span><span class="pl-kos">.</span><span class="pl-en">stringify</span><span class="pl-kos">(</span><span class="pl-s1">e</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<p><a href="https://nativesupport.dcloud.net.cn/UniMPDocs/API/android-v2.html#dcunimpsdk-getinstance-setonunimpeventcallback" rel="nofollow">Android</a></p>
+<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-c">// 实现以下接口</span>
+<span class="pl-smi">DCUniMPSDK</span>.<span class="pl-en">getInstance</span>().<span class="pl-en">setOnUniMPEventCallBack</span>(<span class="pl-smi">IOnUniMPEventCallBack</span> <span class="pl-s1">callback</span>);</pre></div>
+<p><a href="https://nativesupport.dcloud.net.cn/UniMPDocs/API/ios.html#dcunimpsdkenginedelegate-%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95" rel="nofollow">IOS</a></p>
+<div class="highlight highlight-source-objc"><pre class="notranslate"><span class="pl-c"><span class="pl-c">//</span>/ 小程序向原生发送事件回调方法</span>
+<span class="pl-c"><span class="pl-c">//</span>/ @param appid 对应小程序的appid</span>
+<span class="pl-c"><span class="pl-c">//</span>/ @param event 事件名称</span>
+<span class="pl-c"><span class="pl-c">//</span>/ @param data 数据：NSString 或 NSDictionary 类型</span>
+<span class="pl-c"><span class="pl-c">//</span>/ @param callback 回调数据给小程序</span>
+- (<span class="pl-k">void</span>)onUniMPEventReceive:(<span class="pl-c1">NSString</span> *)appid event:(<span class="pl-c1">NSString</span> *)event data:(<span class="pl-c1">id</span>)data callback:(DCUniMPKeepAliveCallback)callback;
+
+
+<span class="pl-c"><span class="pl-c">//</span>/ 回调数据给小程序</span>
+<span class="pl-c"><span class="pl-c">//</span>/ result：回调参数支持 NSString 或 NSDictionary 类型</span>
+<span class="pl-c"><span class="pl-c">//</span>/ keepAlive：如果 keepAlive 为 YES，则可以多次回调数据给小程序，反之触发一次后回调方法即被移除</span>
+<span class="pl-k">typedef</span> <span class="pl-en">void</span> (^DCUniMPKeepAliveCallback)(<span class="pl-c1">id</span> result, <span class="pl-c1">BOOL</span> keepAlive);</pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
